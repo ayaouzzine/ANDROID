@@ -1,5 +1,7 @@
 package com.example.android;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    public ProgressDialog progressDialog;
 
         private TextView tv;
         public static final int RESULT_Main = 1;
@@ -43,11 +46,25 @@ public class MainActivity extends AppCompatActivity {
 
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
-            if (requestCode == RESULT_Main && resultCode == RESULT_CANCELED)
-                finish();
+            if (requestCode == RESULT_Main && resultCode == RESULT_CANCELED) {
+                progressDialog.dismiss();
+                createDialog("Error", "Invalid Username and Password");
+
+            }
             else
                 startup(data);
         }
+
+    private void createDialog(String title, String text)
+    {
+        // Création d'une popup affichant un message
+        AlertDialog ad = new AlertDialog.Builder(this)
+                .setPositiveButton("Ok", null).setTitle(title).setMessage(text)
+                .create();
+        ad.show();
+
+    }
+
     // For toggling visibility of password.
     public void toggle(View v){
         if(!state){

@@ -100,7 +100,6 @@ public class LoginActivity extends Activity
     {
         // On envoie un résultat qui va permettre de quitter l'appli
         setResult((success) ? Activity.RESULT_OK : Activity.RESULT_CANCELED, i);
-        finish();
 
     }
 
@@ -310,8 +309,8 @@ public class LoginActivity extends Activity
                     progressDialog.dismiss();
                     Intent i = new Intent();
                     i.putExtra("userid", userID);
-                    quit(true, i);
-                }
+                    Intent myIntent = new Intent(LoginActivity.this, ClientActivity.class);
+                    LoginActivity.this.startActivity(myIntent);                }
             }
         }
 
