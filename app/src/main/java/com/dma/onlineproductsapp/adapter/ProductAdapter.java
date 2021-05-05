@@ -14,9 +14,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+//import androidx.recyclerview.widget.RecyclerView;
 
-import com.rajendra.onlineproductsapp.Productdetails;
-import com.rajendra.onlineproductsapp.R;
+import com.dma.onlineproductsapp.Productdetails;
+import com.dma.onlineproductsapp.R;
 import com.rajendra.onlineproductsapp.model.Products;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ProductViewHolder holder, final int position) {
 
         holder.prodImage.setImageResource(productsList.get(position).getImageUrl());
         holder.prodName.setText(productsList.get(position).getProductName());
@@ -52,11 +53,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, Productdetails.class);
-/*
+                i.putExtra("libelleProduct",productsList.get(position).getProductName());
+                i.putExtra("initialPrice",productsList.get(position).getProductQty());
+                i.putExtra("finalPrice",productsList.get(position).getProductPrice());
+
                 Pair[] pairs = new Pair[1];
                 pairs[0] = new Pair<View, String>(holder.prodImage, "image");
                 ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation((Activity) context, pairs);
-               */ context.startActivity(i/*, activityOptions.toBundle()*/);
+                context.startActivity(i, activityOptions.toBundle());
             }
         });
 

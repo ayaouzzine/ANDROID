@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rajendra.onlineproductsapp.R;
+import com.dma.onlineproductsapp.R;
 import com.rajendra.onlineproductsapp.model.ProductCategory;
 
 import java.util.List;
