@@ -20,13 +20,17 @@
         android:textStyle="bold"/>
 
     <Button
+        android:id="@+id/logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="Log out"
         android:textAllCaps="false"
-        android:id="@+id/logout"
-        android:textColor="@android:color/white"
-        android:background="#FFFFFF"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:textColor="#FFF"
+        android:textSize="20dp"
+        android:background="@drawable/round_button_2"
+        android:gravity="center"/>
 
 </LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".ClientActivity"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="LAST STEP !"
+        android:textColor="#2F4F4F"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="To complete your registration, please enter the code sent to your email"
+        android:textColor="#FFFFFF"
+        android:textSize="21sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Validation Code"
+        android:layout_marginTop="40dp"
+        android:inputType="number"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#FFF"
+        android:textSize="20dp"
+        android:background="@drawable/round_button_2"
+        android:gravity="center"
+        android:text="Validate"
+        android:onClick="validate"
+        android:id="@+id/validate"/>
+
+
+</LinearLayout>
