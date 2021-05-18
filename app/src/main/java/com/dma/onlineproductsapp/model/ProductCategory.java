@@ -1,4 +1,4 @@
-package com.rajendra.onlineproductsapp.model;
+package com.dma.onlineproductsapp.model;
 
 public class ProductCategory {
 

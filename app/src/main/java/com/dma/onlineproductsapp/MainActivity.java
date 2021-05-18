@@ -1,5 +1,6 @@
 package com.dma.onlineproductsapp;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,15 +13,24 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import org.joda.time.DateTime;
+import org.joda.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.widget.ArrayAdapter;
@@ -28,9 +38,9 @@ import android.widget.ListView;
 
 import com.dma.onlineproductsapp.R;
 import com.dma.onlineproductsapp.adapter.ProductAdapter;
-import com.rajendra.onlineproductsapp.adapter.ProductCategoryAdapter;
-import com.rajendra.onlineproductsapp.model.ProductCategory;
-import com.rajendra.onlineproductsapp.model.Products;
+import com.dma.onlineproductsapp.adapter.ProductCategoryAdapter;
+import com.dma.onlineproductsapp.model.ProductCategory;
+import com.dma.onlineproductsapp.model.Products;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("staaaaaarting");
         getData();
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
+       // adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data);
 
 
         List<ProductCategory> productCategoryList = new ArrayList<>();
@@ -73,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         productCategoryList.add(new ProductCategory(6, "Paintings"));
         productCategoryList.add(new ProductCategory(7, "Other Services"));
 
-        setProductRecycler(productCategoryList);
+        //setProductRecycler(products);
 
        //productsList.add(new Products(1, "1933 Wilys 2-Dr Coupe", "$ 400 000", "$ 420 000", R.drawable.car1));
         //productsList.add(new Products(2, "African Mango Shower Gel", "$ 2000", "$ 2500", R.drawable.paiting1));
@@ -83,31 +93,42 @@ public class MainActivity extends AppCompatActivity {
       //  productsList.add(new Products(2, "African Mango Shower Gel", "$ 14.00", "$ 25.00", R.drawable.prod1));
 
         setProdItemRecycler(products);
+        setProductRecycler(productCategoryList);
 
 
     }
 
+
+
+
     private void getData(){
+        DateTimeFormatter formatter  = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+
         try{
             URL url = new URL(address);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
             con.setRequestMethod("GET");
             is = new BufferedInputStream(con.getInputStream());
+            System.out.println(" no prob ");
         }  catch (Exception e) {
+            System.out.println("hnaaa");
             e.printStackTrace();
         }
 
         //Read content into a string
         try{
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            System.out.println(" no prob ici " + br);
             StringBuilder sb = new StringBuilder();
 
             while((line = br.readLine()) != null ){
+                System.out.println("first");
                 sb.append(line +"\n");
             }
             is.close();
             result = sb.toString();
-            System.out.println(result);
+            System.out.println(" heeeeell iis" + result);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,10 +141,16 @@ public class MainActivity extends AppCompatActivity {
             data = new String[ja.length()];
 
             for(int i=0;i<ja.length();i++){
+
                 jo = ja.getJSONObject(i);
                 System.out.println(jo.getString("libelleProduct"));
                 data[i] = jo.getString("libelleProduct");
-                products.add(new Products((int)Math.random(),jo.getString("libelleProduct"),jo.getString("initialPrice"),jo.getString("finalPrice"),R.drawable.car1));
+                String endDate = jo.getString("EndDate");
+                DateTime dt = formatter.parseDateTime(endDate);
+               System.out.println("date is" + dt);
+                    //date = LocalDateTime.parse(endDate);
+
+                products.add(new Products((int)Math.random(),jo.getString("libelleProduct"),jo.getString("initialPrice"),jo.getString("finalPrice"),jo.getString("imageUrl"),jo.getString("productDesc"), dt,jo.getString("libelleCategorie")));
             }
 
            // products = productsList;
@@ -132,7 +159,15 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    public static Drawable LoadImage(String url) {
+        try {
+            InputStream is = (InputStream) new URL(url).getContent();
+            Drawable d = Drawable.createFromStream(is, "src name");
+            return d;
+        } catch (Exception e) {
+            return null;
+        }
+    }
     private void setProductRecycler(List<ProductCategory> productCategoryList){
 
         productCatRecycler = findViewById(R.id.cat_recycler);
@@ -146,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
     private void setProdItemRecycler(List<Products> productsList){
 
         prodItemRecycler = findViewById(R.id.product_recycler);
-        RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         prodItemRecycler.setLayoutManager(layoutManager);
         productAdapter = new ProductAdapter(this, productsList);
         prodItemRecycler.setAdapter(productAdapter);

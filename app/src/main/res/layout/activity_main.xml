@@ -138,13 +138,15 @@
         android:layout_width="0dp"
         android:layout_height="450dp"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cat_recycler"
         tools:listitem="@layout/products_row_item" />
 
-    <Button
+    <!--Button
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="55dp"
@@ -164,7 +166,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/product_recycler"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0" / !-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.telecom.Call;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -12,13 +13,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 //import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.dma.onlineproductsapp.Productdetails;
 import com.dma.onlineproductsapp.R;
-import com.rajendra.onlineproductsapp.model.Products;
+import com.dma.onlineproductsapp.model.Products;
+
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import java.util.List;
 
@@ -44,26 +52,37 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, final int position) {
 
-        holder.prodImage.setImageResource(productsList.get(position).getImageUrl());
+        //holder.prodImage.setImageResource(productsList.get(position).getImageUrl());
         holder.prodName.setText(productsList.get(position).getProductName());
         holder.prodQty.setText(productsList.get(position).getProductQty());
         holder.prodPrice.setText(productsList.get(position).getProductPrice());
+        Glide.with(this.context).load(productsList.get(position). getImageUrl()).into(holder.prodImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
+            //@RequiresApi(api = Build.VERSION_CODES.O)
+
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, Productdetails.class);
                 i.putExtra("libelleProduct",productsList.get(position).getProductName());
                 i.putExtra("initialPrice",productsList.get(position).getProductQty());
                 i.putExtra("finalPrice",productsList.get(position).getProductPrice());
+                i.putExtra("imageUrl",productsList.get(position). getImageUrl());
+                i.putExtra("productDesc",productsList.get(position).getProductDesc());
+                i.putExtra("libelleCategorie",productsList.get(position).getLibelleCategory());
+                DateTime dt = productsList.get(position).getEndDateAuction();
+                DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
+                String str = fmt.print(dt);
+                i.putExtra("EndDate",str);
+
 
                 Pair[] pairs = new Pair[1];
                 pairs[0] = new Pair<View, String>(holder.prodImage, "image");
+                Glide.with(context).load(productsList.get(position). getImageUrl()).into(holder.prodImage);
                 ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation((Activity) context, pairs);
                 context.startActivity(i, activityOptions.toBundle());
             }
         });
-
 
     }
 
@@ -73,8 +92,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     public static final class ProductViewHolder extends RecyclerView.ViewHolder{
-
-        ImageView prodImage;
+         ImageView prodImage;
         TextView prodName, prodQty, prodPrice;
 
         public ProductViewHolder(@NonNull View itemView) {

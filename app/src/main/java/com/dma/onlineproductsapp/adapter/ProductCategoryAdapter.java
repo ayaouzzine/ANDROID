@@ -1,23 +1,52 @@
-package com.rajendra.onlineproductsapp.adapter;
+package com.dma.onlineproductsapp.adapter;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dma.onlineproductsapp.Productdetails;
 import com.dma.onlineproductsapp.R;
-import com.rajendra.onlineproductsapp.model.ProductCategory;
+import com.dma.onlineproductsapp.model.ProductCategory;
+import com.dma.onlineproductsapp.model.Products;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategoryAdapter.ProductViewHolder> {
 
     Context context;
     List<ProductCategory> productCategoryList;
+    RecyclerView  prodItemRecycler;
+    ProductAdapter productAdapter;
+
+    String address = "http://192.168.1.14/android/productsCat.php?queried=";
+    ArrayAdapter<String> adapter;
+    InputStream is = null;
+    String line = null;
+    String result = null;
+    String[] data;
+
+    List<Products> products = new ArrayList<>();
 
     public ProductCategoryAdapter(Context context, List<ProductCategory> productCategoryList) {
         this.context = context;
@@ -35,8 +64,9 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-
+        final String text = productCategoryList.get(position).getProductName();
         holder.catagoryName.setText(productCategoryList.get(position).getProductName());
+
 
     }
 
@@ -58,5 +88,6 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
 
         }
     }
+
 
 }
