@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".AddProduct">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150px"
+            android:fontFamily="@font/poppinsbold"
+            android:gravity="center"
+            android:text="Add New Product"
+            android:textColor="#FFFFFF"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/productname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/ic_prod"
+            android:drawableLeft="@drawable/ic_prod"
+            android:drawablePadding="5dp"
+            android:gravity="start"
+            android:hint="Product Name"
+            android:inputType="text"
+            android:textCursorDrawable="@null" />
+
+        <EditText
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:drawableStart="@drawable/ic_categ"
+            android:drawableLeft="@drawable/ic_categ"
+            android:drawablePadding="5dp"
+            android:gravity="start"
+            android:hint="Product description"
+            android:inputType="text"
+            android:textCursorDrawable="@null" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Start Price"
+            android:textCursorDrawable="@null"
+            android:drawablePadding="5dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/price"
+            android:gravity="start"
+            android:inputType="number"
+            android:drawableLeft="@drawable/ic_money" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Image Url"
+            android:textCursorDrawable="@null"
+            android:drawableStart="@drawable/ic_image"
+            android:drawablePadding="5dp"
+            android:inputType="text"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/imgurl"
+            android:gravity="start"
+            android:drawableLeft="@drawable/ic_image" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Auction End Date"
+            android:textCursorDrawable="@null"
+            android:drawableStart="@drawable/ic_date"
+            android:drawablePadding="5dp"
+            android:inputType="date"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/date"
+            android:gravity="start"
+            android:drawableLeft="@drawable/ic_date" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="10dip"
+            android:id="@+id/linear_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Text Label -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:text="Category:"
+                android:layout_marginLeft="42dp"
+                android:textSize="45px"
+                android:fontFamily="@font/poppinsbold"
+                android:layout_marginBottom="5dp"
+                />
+
+            <!-- Spinner Element -->
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:prompt="@string/spinner"
+                 />
+
+
+
+
+            <Button
+                android:id="@+id/buttonAdd"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/addproduct"
+                android:layout_marginLeft="140dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress" />
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

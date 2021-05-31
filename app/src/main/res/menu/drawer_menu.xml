@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <item android:id="@+id/nav_prod"
+        android:icon="@drawable/ic_image"
+        android:title="Products">
+        <menu>
+            <item android:id="@+id/nav_addprod"
+                android:icon="@drawable/ic_plus"
+                android:title="Add Product"/>
+            <item android:id="@+id/nav_delprod"
+                android:icon="@drawable/ic_delete"
+                android:title="Delete Product"/>
+        </menu>
+    </item>
+
+    <item android:id="@+id/nav_cat"
+        android:icon="@drawable/ic_image"
+        android:title="Categories">
+        <menu>
+            <item android:id="@+id/nav_addcat"
+                android:icon="@drawable/ic_plus"
+                android:title="Add Category"/>
+            <item android:id="@+id/nav_delcat"
+                android:icon="@drawable/ic_delete"
+                android:title="Delete Category"/>
+        </menu>
+    </item>
+    <item android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_login"
+        android:title="Logout"></item>
+
+
+</menu>

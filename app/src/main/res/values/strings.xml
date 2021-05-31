@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">ecommerce</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signuphere">Sign up here</string>
+    <string name="signup">Sign Up</string>
+    <string name="fullname">Full name</string>
+    <string name="email">Email</string>
+    <string name="loginhere">Login Here</string>
+    <string name="addproduct">Add product</string>
+    <string name="nomprod">Nom du produit</string>
+    <string name="date_of_birth">End Auction date</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Open navigation close</string>
+
+
+    <style name="menustyle" parent="Theme.AppCompat.Light">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <string-array name="chocolate">
+        <item>Crackles</item>
+        <item>Fruit and Nut</item>
+        <item>Dairy milk silk</item>
+    </string-array>
+    <string name="choose_chocolate">Choose Chocolate</string>
+    <string name="spinner">Select category</string>
+    <string name="addcat">Add Category</string>
+    <string name="delete">Delete</string>
+
+
+</resources>
