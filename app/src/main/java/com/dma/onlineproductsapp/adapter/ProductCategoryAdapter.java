@@ -39,7 +39,7 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
     RecyclerView  prodItemRecycler;
     ProductAdapter productAdapter;
 
-    String address = "http://192.168.1.14/android/productsCat.php?queried=";
+    //String address = "http://192.168.1.14/android/productsCat.php?queried=";
     ArrayAdapter<String> adapter;
     InputStream is = null;
     String line = null;

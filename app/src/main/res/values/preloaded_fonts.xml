@@ -5,5 +5,7 @@
         <item>@font/rubik_bold</item>
         <item>@font/rubik_bold_italic</item>
         <item>@font/rubik_medium</item>
+        <item>@font/poppins_light</item>
+        <item>@font/poppins_semibold</item>
     </array>
 </resources>

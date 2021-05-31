@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">OnlineProductsApp</string>
     <string name="title_activity_category_products">ScrollingActivity</string>
+     <style name="menustyle"
+        parent="Theme.AppCompat.Light">
+        <item name="android:background">@android:color/white</item>
+    </style>
+    <string-array name="text">
+    <item>Welcome to your E-AUCTION application</item>
+        <item>Welcome to your E-AUCTION application</item>
+    </string-array>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -91,4 +99,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="logo">LOGO</string>
+    <string name="see_articles">See Articles</string>
+    <string name="create_account">Create Account</string>
 </resources>
