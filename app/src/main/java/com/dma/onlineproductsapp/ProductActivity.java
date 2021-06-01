@@ -39,7 +39,7 @@ public class ProductActivity extends AppCompatActivity {
     RecyclerView productCatRecycler, prodItemRecycler;
     ProductAdapter productAdapter;
 
-    String address = "http://192.168.43.174/android/products.php";
+    String address = "https://androidauctions.000webhostapp.com/products.php";
     ArrayAdapter<String> adapter;
     InputStream is = null;
     String line = null;
@@ -71,14 +71,6 @@ public class ProductActivity extends AppCompatActivity {
         productCategoryList.add(new ProductCategory(6, "Paintings"));
         productCategoryList.add(new ProductCategory(7, "Other Services"));
 
-        //setProductRecycler(products);
-
-        //productsList.add(new Products(1, "1933 Wilys 2-Dr Coupe", "$ 400 000", "$ 420 000", R.drawable.car1));
-        //productsList.add(new Products(2, "African Mango Shower Gel", "$ 2000", "$ 2500", R.drawable.paiting1));
-        //productsList.add(new Products(1, "Japanese Cherry Blossom", "$ 10 000", "$ 10 000", R.drawable.meuble1));
-        //  productsList.add(new Products(2, "African Mango Shower Gel", "$ 20.00", "$ 25.00", R.drawable.prod1));
-        //  productsList.add(new Products(1, "Japanese Cherry Blossom", "$ 7.00", "$ 17.00", R.drawable.prod2));
-        //  productsList.add(new Products(2, "African Mango Shower Gel", "$ 14.00", "$ 25.00", R.drawable.prod1));
 
         setProdItemRecycler(products);
         setProductRecycler(productCategoryList);
@@ -143,7 +135,7 @@ public class ProductActivity extends AppCompatActivity {
                 System.out.println("date is" + dt);
                 //date = LocalDateTime.parse(endDate);
 
-                products.add(new Products((int)Math.random(),jo.getString("libelleProduct"),jo.getString("initialPrice"),jo.getString("finalPrice"),jo.getString("imageUrl"),jo.getString("productDesc"), dt,jo.getString("libelleCategorie")));
+                products.add(new Products(Integer.parseInt(jo.getString("productId")),jo.getString("libelleProduct"),jo.getString("initialPrice"),jo.getString("finalPrice"),jo.getString("imageUrl"),jo.getString("productDesc"), dt,jo.getString("libelleCategorie")));
             }
 
             // products = productsList;

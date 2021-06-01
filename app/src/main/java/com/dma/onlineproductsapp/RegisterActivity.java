@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
     public static final String EMAIL = "email";
     public static final String STATUS = "status";
     public static final String USERNAME = "username";
-    public static final String URL_REGISTER = "http://192.168.43.174/android/register.php";
+    public static final String URL_REGISTER = "http://androidauctions.000webhostapp.com/register.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

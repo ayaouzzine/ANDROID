@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -28,7 +27,7 @@ import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static final String URL_LOGIN = "http://192.168.43.174/android/login.php";
+    public static final String URL_LOGIN = "http://androidauctions.000webhostapp.com/login.php";
     EditText ed_email, ed_password;
     SharedPreferences sharedPreferences;
     public static final String MY_PREFERENCES = "MyPrefs";

@@ -31,7 +31,7 @@ public class ValidationActivity extends AppCompatActivity {
     String ed_email;
     public static final String MY_PREFERENCES = "MyPrefs";
     public static final String EMAIL = "email";
-    public static final String URL_REGISTER = "http://192.168.43.174/android/validate.php";
+    public static final String URL_REGISTER = "http://androidauctions.000webhostapp.com/validate.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

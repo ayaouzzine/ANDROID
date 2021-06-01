@@ -37,8 +37,8 @@ public class ResetActivity extends AppCompatActivity {
    TextView email;
     String ed_email;
     EditText ed_code,ed_pwd,ed_confpwd;
-    public static final String URL_REGISTER = "http://192.168.43.174/android/reset.php";
-    public static final String URL_REGISTER2 = "http://192.168.43.174/android/newpwd.php";
+    public static final String URL_REGISTER = "http://androidauctions.000webhostapp.com/reset.php";
+    public static final String URL_REGISTER2 = "http://androidauctions.000webhostapp.com/newpwd.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,22 +89,8 @@ public class ResetActivity extends AppCompatActivity {
                         //converting response to json object
                         JSONObject obj = new JSONObject(s);
                         //if no error in response
-                        if(obj.getString("message").equals("Success")) {
-                            //Intent intent = new Intent(getApplicationContext(), ClientActivity.class);
-                            //startActivity(intent);
-                            //finish();
-                            new AlertDialog.Builder(ResetActivity.this)
-                                    .setTitle("Validation Code Sent")
-                                    .setMessage("\nPlease check your emails\n")
-                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-                                            dialog.cancel();
-                                        }
-                                    })
-                                    .setIcon(android.R.drawable.checkbox_on_background)
-                                    .show();
-                        }
-                        else if(obj.getString("message").equals("Fail")) {
+
+                         if(obj.getString("message").equals("Fail")) {
                             new AlertDialog.Builder(ResetActivity.this)
                                     .setTitle("No user found")
                                     .setMessage("\n Try again with another email !")
@@ -119,10 +105,27 @@ public class ResetActivity extends AppCompatActivity {
                                     .setCancelable(false)
                                     .show();
                         }
+                         else
+                             //if(obj.getString("message").equals("Success"))
+                             {
+                             //Intent intent = new Intent(getApplicationContext(), ClientActivity.class);
+                             //startActivity(intent);
+                             //finish();
+                             new AlertDialog.Builder(ResetActivity.this)
+                                     .setTitle("Validation Code Sent")
+                                     .setMessage("\nPlease check your emails\n")
+                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                         public void onClick(DialogInterface dialog, int id) {
+                                             dialog.cancel();
+                                         }
+                                     })
+                                     .setIcon(android.R.drawable.checkbox_on_background)
+                                     .show();
+                         }
 
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Toast.makeText(ResetActivity.this, "Exception: " + e, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(ResetActivity.this, "Check your emails for validation code" , Toast.LENGTH_LONG).show();
                     }                }
             }
 

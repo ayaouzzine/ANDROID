@@ -54,8 +54,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         //holder.prodImage.setImageResource(productsList.get(position).getImageUrl());
         holder.prodName.setText(productsList.get(position).getProductName());
-        holder.prodQty.setText(productsList.get(position).getProductQty());
-        holder.prodPrice.setText(productsList.get(position).getProductPrice());
+        holder.prodQty.setText(productsList.get(position).getProductInitialPrice());
+        holder.prodPrice.setText(productsList.get(position).getProductFinalPrice());
         Glide.with(this.context).load(productsList.get(position). getImageUrl()).into(holder.prodImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -64,9 +64,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, Productdetails.class);
+                i.putExtra("productId",productsList.get(position).getProductid());
                 i.putExtra("libelleProduct",productsList.get(position).getProductName());
-                i.putExtra("initialPrice",productsList.get(position).getProductQty());
-                i.putExtra("finalPrice",productsList.get(position).getProductPrice());
+                i.putExtra("initialPrice",productsList.get(position).getProductInitialPrice());
+                i.putExtra("finalPrice",productsList.get(position).getProductFinalPrice());
                 i.putExtra("imageUrl",productsList.get(position). getImageUrl());
                 i.putExtra("productDesc",productsList.get(position).getProductDesc());
                 i.putExtra("libelleCategorie",productsList.get(position).getLibelleCategory());

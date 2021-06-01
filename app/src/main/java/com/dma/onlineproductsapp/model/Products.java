@@ -10,8 +10,8 @@ public class Products {
 
     Integer productid;
     String productName;
-    String productQty;
-    String productPrice;
+    String productInitialPrice;
+    String productFinalPrice;
     String imageUrl;
     String productDesc;
     LocalDateTime startDateAuction;
@@ -22,8 +22,8 @@ public class Products {
 
         this.productid = productid;
         this.productName = productName;
-        this.productQty = productQty;
-        this.productPrice = productPrice;
+        this.productInitialPrice = productQty;
+        this.productFinalPrice = productPrice;
         this.imageUrl = imageUrl;
         this.productDesc = productDesc;
         this.endDateAuction = endDateAuction;
@@ -38,20 +38,20 @@ public class Products {
         this.productName = productName;
     }
 
-    public String getProductQty() {
-        return productQty;
+    public String getProductInitialPrice() {
+        return productInitialPrice;
     }
 
-    public void setProductQty(String productQty) {
-        this.productQty = productQty;
+    public void setProductInitailPrice(String productQty) {
+        this.productInitialPrice = productQty;
     }
 
-    public String getProductPrice() {
-        return productPrice;
+    public String getProductFinalPrice() {
+        return productFinalPrice;
     }
 
-    public void setProductPrice(String productPrice) {
-        this.productPrice = productPrice;
+    public void setProductFinalPrice(String productPrice) {
+        this.productFinalPrice = productPrice;
     }
 
     public String getImageUrl() {
