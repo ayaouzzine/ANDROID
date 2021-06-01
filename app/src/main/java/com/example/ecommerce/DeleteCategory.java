@@ -41,7 +41,7 @@ public class DeleteCategory extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete_product);
+        setContentView(R.layout.activity_delete_category);
         // ArrayList<Object> ProductName = new ArrayList<>();
         spinner=(Spinner)findViewById(R.id.spinner);
         loadSpinnerData(URL);

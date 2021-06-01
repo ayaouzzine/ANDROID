@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_delcat:
                 startActivity(new Intent(MainActivity.this,DeleteCategory.class));
                 break;
+
+            case R.id.nav_update:
+                startActivity(new Intent(MainActivity.this,Encherir.class));
+                break;
             case R.id.nav_logout:
                 startActivity(new Intent(MainActivity.this,Login.class));
                 break;

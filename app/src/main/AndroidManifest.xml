@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommerce"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DeleteCategory"></activity>
+        <activity android:name=".Encherir"></activity>
+        <activity android:name=".DeleteCategory" />
         <activity android:name=".DeleteProduct" />
         <activity android:name=".AddCategory" />
         <activity android:name=".AddProduct" />
